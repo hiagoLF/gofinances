@@ -1,8 +1,51 @@
 import React from 'react'
-import { Container, Header, UserWraper, UserInfo, Photo, User, UserGreeting, UserName, Icon, HightlightCards } from './styles'
-import { Feather } from '@expo/vector-icons'
-import { RFValue } from 'react-native-responsive-fontsize'
+import {
+    Container, Header, UserWraper, UserInfo, Photo, User,
+    UserGreeting, UserName, Icon, HightlightCards,
+    Transactions, Title, TransactionsList
+} from './styles'
 import { HightlightCard } from '../../components/HighlightCard'
+import { TransactionCard, TransactionCardData } from '../../components/TransactionCard'
+
+const data: DataListProps[] = [
+    {
+        id: '1',
+        type: 'positive',
+        title: 'Desenvolvimento de site',
+        amount: 'R$ 12.000,00',
+        category: {
+            name: 'Vendas',
+            icon: 'dollar-sign'
+        },
+        date: '13/04/2020'
+    },
+    {
+        id: '2',
+        type: 'negative',
+        title: 'Desenvolvimento de site',
+        amount: 'R$ 12.000,00',
+        category: {
+            name: 'Alimentação',
+            icon: 'coffee'
+        },
+        date: '13/04/2020'
+    },
+    {
+        id: '3',
+        type: 'negative',
+        title: 'Desenvolvimento de site',
+        amount: 'R$ 12.000,00',
+        category: {
+            name: 'Casa',
+            icon: 'dollar-sign'
+        },
+        date: '13/04/2020'
+    },
+]
+
+export interface DataListProps extends TransactionCardData {
+    id: string;
+}
 
 export function Dashboard() {
     return (
@@ -41,6 +84,16 @@ export function Dashboard() {
                     lastTransaction='01 à 16 de Abril'
                 />
             </HightlightCards>
+
+            <Transactions>
+                <Title>Listagem</Title>
+
+                <TransactionsList
+                    data={data}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({ item }) => <TransactionCard data={item} />}
+                />
+            </Transactions>
         </Container>
     )
 }
