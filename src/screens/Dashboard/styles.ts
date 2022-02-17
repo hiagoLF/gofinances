@@ -3,6 +3,7 @@ import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 import { Feather } from '@expo/vector-icons'
 import { FlatList, FlatListProps } from 'react-native';
 import { DataListProps } from '.';
+import {BorderlessButton} from 'react-native-gesture-handler'
 
 export const Container = styled.View`
     flex: 1;
@@ -54,6 +55,8 @@ export const UserName = styled.Text`
     font-family: ${({ theme }) => theme.fonts.bold};
 `;
 
+export const LogoutButton = styled(BorderlessButton)``;
+
 export const Icon = styled(Feather).attrs({
     name: 'power'
 })`
@@ -89,3 +92,4 @@ export const TransactionsList = styled(
 ).attrs({
     showsVerticalScrollIndicator: false
 })``;
+

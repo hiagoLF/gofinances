@@ -2,7 +2,7 @@ import React from 'react'
 import {
     Container, Header, UserWraper, UserInfo, Photo, User,
     UserGreeting, UserName, Icon, HightlightCards,
-    Transactions, Title, TransactionsList
+    Transactions, Title, TransactionsList, LogoutButton
 } from './styles'
 import { HightlightCard } from '../../components/HighlightCard'
 import { TransactionCard, TransactionCardData } from '../../components/TransactionCard'
@@ -60,7 +60,9 @@ export function Dashboard() {
                         </User>
                     </UserInfo>
 
-                    <Icon />
+                    <LogoutButton onPress={() => console.log('Logout')}>
+                        <Icon />
+                    </LogoutButton>
                 </UserWraper>
             </Header>
 
