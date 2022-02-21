@@ -83,7 +83,7 @@ export const Register: React.FC = () => {
               <TransactionTypeButton
                 title='Income'
                 type='up'
-                onPress={() => setTransactionType('up')}
+                onPress={() => {console.log('pressed'); setTransactionType('up')}}
                 isActive={transactionType === 'up'}
               />
               <TransactionTypeButton

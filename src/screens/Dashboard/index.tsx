@@ -6,6 +6,7 @@ import {
 } from './styles'
 import { HightlightCard } from '../../components/HighlightCard'
 import { TransactionCard, TransactionCardData } from '../../components/TransactionCard'
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const data: DataListProps[] = [
     {
@@ -59,10 +60,11 @@ export function Dashboard() {
                             <UserName>Hiago</UserName>
                         </User>
                     </UserInfo>
-
-                    <LogoutButton onPress={() => console.log('Logout')}>
-                        <Icon />
-                    </LogoutButton>
+                    <GestureHandlerRootView>
+                        <LogoutButton onPress={() => console.log('Logout')}>
+                            <Icon />
+                        </LogoutButton>
+                    </GestureHandlerRootView>
                 </UserWraper>
             </Header>
 

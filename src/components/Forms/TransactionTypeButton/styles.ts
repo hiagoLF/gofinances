@@ -4,7 +4,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import {RectButton} from 'react-native-gesture-handler'
 
 interface IconProps {
-    type: 'up' | 'down'
+    type: 'up' | 'down';
 }
 
 interface ContainerProps {
@@ -13,7 +13,6 @@ interface ContainerProps {
 }
 
 export const Container = styled.View<ContainerProps>`
-    width: 49%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -23,7 +22,6 @@ export const Container = styled.View<ContainerProps>`
     border-color: ${({ theme }) => theme.colors.text};
 
     border-radius: 5px;
-
     padding: 16px;
 
     ${({isActive, type}) => isActive && type === 'up' && css`
@@ -35,7 +33,9 @@ export const Container = styled.View<ContainerProps>`
     `}
 `;
 
-export const Button = styled(RectButton)``;
+export const Button = styled(RectButton)`
+    width: 100%;
+`;
 
 export const Icon = styled(Feather) <IconProps>`
     font-size: ${RFValue(24)}px;
