@@ -1,21 +1,18 @@
 import React from 'react'
+import { categories } from '../../utils/categories';
 
 import {
     Container, Title, Amount, Footer, Category,
     Icon, CategoryName, Date
 } from './styles'
 
-interface Category {
-    name: string;
-    icon: string;
-}
 
 export interface TransactionCardData {
     type: 'positive' | 'negative';
-    title: string;
-    amount: string;
+    name: string;
+    amount: number;
     date: string;
-    category: Category;
+    category: string;
 }
 
 interface TransactionCardProps {
@@ -25,17 +22,26 @@ interface TransactionCardProps {
 export function TransactionCard({
     data
 }: TransactionCardProps) {
+
+    console.log(data)
+
+    const category = categories.find(
+        item => item.key === data.category
+    )
+
+    console.log(category)
+
     return (
         <Container>
-            <Title>{data.title}</Title>
+            <Title>{data.name}</Title>
             <Amount type={data.type}>
                 {data.type === 'negative' && '- '}
                 {data.amount}
             </Amount>
             <Footer>
                 <Category>
-                    <Icon name={data.category.icon} />
-                    <CategoryName>{data.category.name}</CategoryName>
+                    <Icon name={category?.icon} />
+                    <CategoryName>{category?.name}</CategoryName>
                 </Category>
                 <Date>{data.date}</Date>
             </Footer>
