@@ -8,46 +8,9 @@ import { HightlightCard } from '../../components/HighlightCard'
 import { TransactionCard, TransactionCardData } from '../../components/TransactionCard'
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { formatDateToBr, formatNumberToReais } from '../../utils/format';
 import { useFocusEffect } from '@react-navigation/native';
 import { ActivityIndicator, View } from 'react-native';
 import { useTheme } from 'styled-components';
-
-// const data: DataListProps[] = [
-//     {
-//         id: '1',
-//         type: 'positive',
-//         name: 'Desenvolvimento de site',
-//         amount: 12,
-//         category: {
-//             name: 'Vendas',
-//             icon: 'dollar-sign'
-//         },
-//         date: '13/04/2020'
-//     },
-//     {
-//         id: '2',
-//         type: 'negative',
-//         name: 'Desenvolvimento de site',
-//         amount: 12,
-//         category: {
-//             name: 'Alimentação',
-//             icon: 'coffee'
-//         },
-//         date: '13/04/2020'
-//     },
-//     {
-//         id: '3',
-//         type: 'negative',
-//         name: 'Desenvolvimento de site',
-//         amount: 12,
-//         category: {
-//             name: 'Casa',
-//             icon: 'dollar-sign'
-//         },
-//         date: '13/04/2020'
-//     },
-// ]
 
 export interface DataListProps extends TransactionCardData {
     id: string;
@@ -104,6 +67,7 @@ export function Dashboard() {
                 date: dateFormated
             }
         })
+
         setTransactions(transactionsFormated)
         const totalTransactions = entriesTotal - expensiveTotal
         let lastEntryTransactionDate: string = undefined
