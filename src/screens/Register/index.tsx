@@ -109,7 +109,7 @@ export const Register: React.FC = () => {
             <InputForm
               name='amount'
               control={control}
-              placeholder='Quantidade'
+              placeholder='Valor'
               keyboardType='numeric'
               error={errors.amount && errors.amount.message}
             />
